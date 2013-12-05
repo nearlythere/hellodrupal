@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Hello Drupal</title>
+
+    <meta name="description" content="Introduction to Drupal 7">
+    <meta name="author" content="Learning Services at Acquia">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="revealjs/css/reveal.min.css">
+    <link rel="stylesheet" href="revealjs/css/theme/simple.css" id="theme">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<style media="screen" type="text/css">
+
+	.panel-body {
+		padding:0 30px 10px 30px !important;
+	}
+	figcaption {
+		font-size: smaller !important;
+		line-height: 1.25em !important;
+	}
+	figure img {
+		border:none !important;
+	}
+	
+	.reveal .panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	}
+	</style>
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet else print paper CSS with notes -->
+    <script>
+      document.write( '<link rel="stylesheet" href="' + ( window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf' : 'css/paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+
+  	<div class="slides">
+	
+		<section> <!-- nested section starts -->
+        <section>
+          <h1>Hello Drupal</h1>
+          <p>Created by <a href="http://training.acquia.com/">Acquia Learning Services</a>  </p>
+		<h4>Want to take this course online? <a href="http://bit.ly/hello2014">bit.ly/hello2014</a></h4>
+        </section>
+
+        <section>
+          <p>
+          <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Hello Drupal</span>
+           by
+          <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Acquia</span>
+           is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.</p>
+		<p>
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">
+             <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" />
+          </a></p>
+		<p>More info at <a href="http://training.acquia.com/hellodrupal">http://training.acquia.com/hellodrupal</a> </p>
+      <h4>Contact Heather James at <a href="http://twitter.com/">@learningdrupal</a></h4>
+  </section>
+
+	  <section>
+	    <h3>What we'll do in this course</h3>
+		<p>Depends on how much time we have!</p>
+	    <img src="images/timeline-800-355.png" width="800" height="355" />
+		<ul>
+			<li>Learn concepts</li>
+			<li>Watch demos</li>
+			<li>Try it yourself</li>
+		</ul>
+			<aside class="notes">
+				If you’re going to do 30- 45 mins, you will SKIP exercises, as they just watch the demos!
+			</aside>
+	  </section>
+
+		<section>
+			<h2>Getting to know you</h2>
+			<div class="row">
+				<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+ 					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">About me</h3>
+						</div>
+						<div class="panel-body">
+                         <ul>
+                              <li>Why I use Drupal</li>
+                              <li>What I do with Drupal</li>
+                         </ul>
+						</div> <!-- end panel-body -->
+					</div> <!-- end panel -->
+				</div> <!-- end col -->
+
+				<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">About you!</h3>
+			            </div>
+			            <div class="panel-body">
+                         <ul>
+                              <li>What other systems have you used?</li>
+                         </ul>
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				</div> <!-- end row -->
+			<aside class="notes">
+				Alt + Tab to your own site, make sure to talk about yourself and the work you do. But only briefly! As questions from some people in the group.
+			</aside>
+		</section>
+		<section>
+			<h2>What you absolutely must know</h2> 
+			<ol>
+				<li>What is Drupal?</li>
+				<li>Admin tour: Managing content with Drupal</li>
+				<li>Thinking like Drupal: The Drupal Magic Trick</li>
+				<li>Extending Drupal: The Big Three</li>
+			</ol>
+			<aside class="notes">
+			 There are 4 main sections of this presentation today. 
+			</aside>
+		</section>
+
+		<section>
+			<h2>Readiness check!</h2>
+			<div class="row">
+				<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+ 					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Tools you need</h3>
+						</div>
+						<div class="panel-body">
+							<ol>
+								<li>A working copy of Drupal 7
+								<ul>
+									<li>Local install (Try Dev Desktop) OR</li>
+									<li>Acquia Free Tier OR</li>
+									<li>Account on Drupal Gardens</li>
+								</ul>
+								</li>
+								<li>Online exercises.</li>
+							</ol>
+						</div> <!-- end panel-body -->
+					</div> <!-- end panel -->
+				</div> <!-- end col -->
+
+				<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Nice to have</h3>
+			            </div>
+			            <div class="panel-body">
+							<ol>
+								<li>Browser inspection tool, such as Firebug for Firefox; or "Developer mode" in Chrome</li>
+								<li>Lorem ipsum generator</li>
+							</ol>
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				</div> <!-- end row -->
+			<aside class="notes">
+			A local set up isn't needed if you have less than 45 mins, since there is limited time for hands-on activities.<br />
+			This session does NOT cover set up and installation. It's recommended you precede this with an "install fest" event <br />
+			A guide should be using a Fresh install of Drupal 7 with at minimum the Views and the Devel module, with few other modules enabled so yours doesn't look wildly different from a default installation. 
+			</aside>
+		</section>
+	</section> <!-- end nested section -->
+
+	<section> <!-- nested section starts -->
+			<section>
+				<h1>1. What is <br />Drupal?</h1> 
+				<aside class="notes">
+				 Elicit some responses from people. Some might have an idea already - let them tell you!
+				</aside>
+			</section>
+			<section>
+				<h2>Why do we have CMSs?</h2> 
+				<div class="row">
+					<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+				          <div class="panel panel-default">
+				            <div class="panel-heading">
+				              <h3 class="panel-title">Old days: just HTML</h3>
+				            </div>
+				            <div class="panel-body">
+				              	<ul>
+									<li>Sites were mainly text and images</li>
+									<li>Hierarchical site structure.&nbsp;</li>
+									<li>Sites were assumed to be accessed mainly from their front pages.</li>
+									<li>Site maintenance consisted of updating text files.</li>
+								</ul>
+				            </div> <!-- end panel-body -->
+				          </div> <!-- end panel -->
+				        </div> <!-- end col -->
+
+					<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+				          <div class="panel panel-default">
+				            <div class="panel-heading">
+				              <h3 class="panel-title">To database-driven!</h3>
+				            </div>
+				            <div class="panel-body">
+				              	<ul>
+									<li> Templating languages like PHP.</li>
+									<li> Separate data and business logic separated from display.&nbsp;</li>
+									<li>Users, logging in and interacting.</li>
+									<li>Non technical staff managing websites</li>
+								</ul>
+				            </div> <!-- end panel-body -->
+				          </div> <!-- end panel -->
+				        </div> <!-- end col -->
+					</div> <!-- end row -->
+				<aside class="notes">
+				Before CMSs > Sites were mainly text and images, with a hierarchical site structure. Sites were assumed to be accessed mainly from their front pages, before powerful search engines. Site maintenance consisted of updating text files. Templating languages like PHP made it possible to separate data and Business logic separated from display. Now you had users, logging in and interaction! Non technical staff managing websites
+				</aside>
+			</section>
+
+		<section>
+			<h2>In comes Drupal!</h2> 
+			
+			<div class="row">
+				<div class="col-md-6">
+					<figure>
+					<img src="images/dries-muirceardach-360-500.jpg" alt="Dries" width="360" height="500" />
+					<figcaption>
+						<small>Photo by Kathleen Murtagh <a href="http://www.flickr.com/photos/ceardach/4540450692">Dries' State of Drupal keynote</a><br />
+						<a rel="license" href="http://creativecommons.org/licenses/by/2.0/deed.en_GB">(CC BY 2.0)</a></small>
+					</figcaption>
+					</figure>
+				</div>
+ 				<div class="col-md-6">
+					<ul>
+						<li>Founded by Dries Buytaert in his college dorm, circa 2001. </li>
+						<li><strong>Popular: </strong>1 out of every 50 websites</li>
+						<li><strong>Flexible: </strong>From programmable API to UI tools for modeling data and display</li>
+						<li><strong>OSS: </strong>Open source software (GPL v 2+)</li>
+						<li><strong>CMS: </strong>Content management system</li>
+					</ul>
+				</div>
+			</div> <!-- end row -->
+			<aside class="notes">
+			 	This is a chance to give some high level concepts and some history. <br />
+				Name pronounced: drees (trees with a D) by-tart
+			</aside>
+		</section>
+
+		<section>
+			<h2>Used worldwide&#8212;many cases</h2> 
+			<p>Publishing, Community, Apps, Web presence</p>
+			<p>See more at <a href="http://drupalshowcase.com">drupalshowcase.com</a></p>
+				<figure>
+				<img src="images/drupal-showcase.png" alt="Drupal Showcase" width="1000" height="445" />
+				<figcaption>
+				Economist.com, Dev.twitter.com, Whitehouse.gov, The King Center
+				</figcaption>
+				</figure>
+			<aside class="notes">
+				At this point you could opt to show people a case study of something you did, or something relevant to the audience. Watch time! 
+			</aside>
+		</section>
+		<section>
+			<h2>What does Drupal run on?</h2> 
+				<div class="row">
+					<div class="col-md-6">
+					<figure>
+					<img src="images/drupal-components-cacoo-393-328.png" alt="Drupal components" width="393" height="328" />
+					<figcaption>
+					LAMP stack is most widely used and tested.
+					</figcaption>
+					</figure>
+					</div>
+	 				<div class="col-md-6">
+						<h3>Requirements and flexibility</h3>
+						<ul>
+							<li>Details&nbsp;<a href="https://drupal.org/requirements">drupal.org/requirements</a></li>
+							<li>Built in PHP, HTML, CSS, JS.</li>
+							<li>Other OSs, other servers, other DBs possible (in green)</li>
+						</ul>
+					</div>
+				</div> <!-- end row -->
+				<aside class="notes">
+					The requirements in green can be changed. 
+				</aside>
+		</section>
+
+		<section>
+			<h2>Building with Drupal</h2> 
+			<p>Drupal functionality is easily extended with contributed and custom code</p>
+			<figure>
+			<img src="images/drupal-customcode-825-350.png" alt="Drupal contrib and custom" width="825" height="350" />
+			<figcaption>
+			About 80-90% of a typical project is done with contributed code!
+			</figcaption>
+			</figure>
+			<aside class="notes">
+				You don’t need to explain this slide in detail at the moment. This is the first time they might have heard of the concept of contributed v custom modules. Emphasize that according to best practice custom code should be a limited component.
+			</aside>
+		</section>
+		<section>
+			<h2><a href="http://drupal.org">Drupal.org</a></h2> 
+			<h4>How many developers have <em>contributed</em> to Drupal? (Hint: check "d.o")</h4>
+			<figure>
+			<img src="images/drupalorg-stats-900-336.png" alt="Drupal.org" width="900" height="336" />
+			<figcaption>
+			<a href="http://drupal.org">Drupal.org</a> is the canonical location for collaboration, support, downloading code, accessing documentation and connecting to regional and working groups. Referred to as "d.o"
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Drupal.org is the canonical location for collaboration, support, downloading code, accessing documentation and connecting to regional and working groups. Prompt people to go to Drupal.org and see how many developers have contributed to Drupal? (on right sidebar, top)
+			</aside>
+		</section>
+		<section>
+			<h2>Drupal is built by people</h2> 
+			<h4>Drupal is software but also a community.</h4>
+			<figure>
+			<img src="images/drupal-built-by-people-862-421.png" alt="Drupal is a community" width="862" height="421" />
+			<figcaption>
+				<small>All photos by Kathleen Murtagh <a href="http://www.flickr.com/photos/ceardach/">code sprints</a><br />
+				<a rel="license" href="http://creativecommons.org/licenses/by/2.0/deed.en_GB">(CC BY 2.0)</a></small>
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Drupal is highly collaborative. Events are a big part of this.
+			</aside>
+		</section>
+		<section>
+			<h2>DrupalCon</h2> 
+			<ul>
+				<li>Held in Europe, North America and Australia</li>
+				<li>From 1500-3000 people</li>
+				<li>5 days of learning and collaboration</li>
+				<li>Affordable ticket prices; also Scholarships!</li>
+			</ul>
+			<h3>Where's the next DrupalCon?</h3>
+			<p>Hint! Check <a href="https://association.drupal.org/drupalcon">association.drupal.org/drupalcon</a></p>
+			<aside class="notes">
+			Tell them about your experience if you went! Ask the audience where the next event is. 
+			</aside>
+		</section>
+		<section>
+			<h2>Connect locally</h2> 
+			<p>Attend meet-ups, DrupalCamps (local conferences) and training</p>
+			<figure>
+			<img src="images/drupical-screenshot-931-450.png" alt="Drupal.org" width="931" height="450" />
+			<figcaption>
+			<a href="http://drupical.com">Drupical</a> hosts and up to date listing of events across the world.
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Mention any relevant and upcoming regional events!
+			</aside>
+		</section>
+	</section> <!-- end nested section -->
+
+	<section> <!-- nested section starts -->
+		<section>
+			<h1>2. The Drupal <br />Admin Tour!</h1> 
+			<aside class="notes">
+				 
+			</aside>
+		</section>
+		<section>
+			<h2>Drupal as a CMS</h2> 
+			<h4><strong>Demos</strong> by your Drupal guide; you try the <strong>tasks</strong>.</h4>
+			<figure>
+			<img src="images/admin-tour-800-351.jpg" alt="Drupal admin tour" width="800" height="351" />
+			<figcaption>
+			In Drupal 7, most of the editing in the admin area is done in the "overlay".
+			</figcaption>
+			</figure>
+			<aside class="notes">
+				If you’re going to do 30- 45 mins, you will SKIP tasks, as they just watch the demos!
+			</aside>
+		</section>
+		<section>
+			<h2>Managing content with Drupal</h2> 
+			<div class="row">
+				<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Demo</h3>
+			            </div>
+			            <div class="panel-body">
+			              	<ol>
+								<li>A quick tour of the admin UI, the overlay and menus.</li>
+								<li>How to add content?</li>
+								<li>Where to find content?</li>
+							</ol>
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Tasks</h3>
+			            </div>
+			            <div class="panel-body">
+			              	<ol>
+								<li>Change your site title!</li>
+								<li>Add a basic page</li>
+								<li>Add an article</li>
+								<li>Bonus: Main menu link</li>
+								<li>Bonus: Comments</li>
+							</ol>
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				</div> <!-- end row -->
+			<aside class="notes">
+			"DEMO" is what you, the guide do, and "Tasks" are for the learners
+			The emphasis here is way finding in the UI. <br />
+			They should learn at the end there are different content types in Drupal, and where to find content they created. <br />
+			If you are doing the longer session, AFTER you do the demo, direct them to the exercises online, and keep up the next slide.
+			</aside>
+		</section>
+
+		<section>
+			<h2>How did you do?</h2>
+			<p>Which of these tasks did you complete?</p> 
+			<ol>
+				<li>Changed site title.</li>
+				<li>Added a Basic page titled “About”.</li>
+				<li>Created an article with tags.</li>
+				<li>Bonus: Added a comment.</li>
+				<li>Bonus: Added link to Main menu.</li>
+			</ol>
+			<aside class="notes">
+			Keep this slide up while they complete the tasks. Go around the room and help people as they work through the exercises. This is the end of this section. 
+			</aside>
+		</section>
+		<section>
+			<h2>Important to know!</h2>
+			<p>The Drupal content editing experience can (and should) be customized by the developers for users.</p> 
+			<ol>
+				<li>Custom administration pages</li>
+				<li>Improved UI for editing content</li>
+				<li>WYSIWYG configuration</li>
+			</ol>
+			<aside class="notes">
+			 Mention - Good news: This is all being automatically included in Drupal 8. 
+			</aside>
+		</section>
+	</section> <!-- end nested section -->
+	
+	<section> <!-- nested section starts -->
+		<section>
+			<h1>3. Thinking like <br />Drupal</h1>
+			<aside class="notes">
+			 You've shown them what Drupal can do out of the box in terms of content editing. Now you're going to help them understand how Drupal "assembles" a page. 
+			</aside>
+		</section>
+		<section>
+			<h2>Assembling your website </h2>
+			<div class="row">
+				<div class="col-md-6">
+					<figure>
+					<img src="images/mental-sitemap-349-253.png" alt="Mental site map" width="349" height="253" />
+					<figcaption>
+					Your mental model might be like this. 
+					</figcaption>
+					</figure>
+				</div>
+ 				<div class="col-md-6">
+					<ul>
+						<li>You use Drupal to assemble sites with data.</li>
+						<li>Drupal surprises users who expect "structure first". Drupal is "data first".</li>
+						<li>The computing metaphor of "folders" and "documents" is compelling. Beware!</li>
+					</ul>
+				</div>
+			</div> <!-- end row -->
+			
+			<aside class="notes">
+			Here, you try to address the preconception head-on. Mention that people want to put the "menu items in place first" before they add content. The thing that makes Drupal confusing is the thing that makes it special.  
+			</aside>
+		</section>
+		<section>
+			<h2>Structured data</h2> 
+			<p>Compare these two data models. How can you control content input and display with either?</p>
+				<figure>
+				<img src="images/structured-content-model-754-464.png" alt="Structured content" width="754" height="464" />
+				<figcaption>
+				Unstructured text on the left, structured data (fields) on the right.
+				</figcaption>
+				</figure>
+			<aside class="notes">
+				Drupal works from content first! Drupal is uniquely positioned to handle this problem. Elicit a response that structured data allows you to control input (validate certain fields are filled in) and allows you to control output (display or hide fields in a display.)
+			</aside>
+		</section>
+
+		<section>
+			<h2>Introducing Views!</h2> 
+			<p>Views is a query builder.</p>
+			<p>It's the most popular <strong>contributed module.</strong></p>
+				<figure>
+				<img src="images/views-query-builder-584-425.png" alt="Views introduction" width="584" height="425" />
+				<figcaption>
+				 This shows the Views wizard screen which we'll use in the demo. 
+				</figcaption>
+				</figure>
+			<aside class="notes">
+				Point out, Views is the most popular module! (added to Drupal 8!) Mention that you'll be using the quick wizard, but there is a far more powerful editor.
+			</aside>
+		</section>
+		<section>
+			<h2>Drupal Magic Trick!</h2> 
+				<div class="row">
+					<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+				          <div class="panel panel-default">
+				            <div class="panel-heading">
+				              <h3 class="panel-title">Demo</h3>
+				            </div>
+				            <div class="panel-body">
+								<ol>
+									<li>Add a <strong>content type</strong></li>
+									<li>Add an <strong>imagefield</strong></li>
+									<li>Create content (add a <strong>node</strong>)</li>
+									<li>Create lists of content with <strong>Views</strong></li>
+									<li>Place a <strong>block</strong> into a <strong>region</strong></li>
+									<li>Fix the <strong>imagestyle</strong></li>
+								</ol>
+				            </div> <!-- end panel-body -->
+				          </div> <!-- end panel -->
+				        </div> <!-- end col -->
+					<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+				          <div class="panel panel-default">
+				            <div class="panel-heading">
+				              <h3 class="panel-title">Tasks</h3>
+				            </div>
+				            <div class="panel-body">
+								<ol>
+									<li>Use Views!</li>
+									<li>Make a page of articles at /articles</li>
+								</ol>
+				            </div> <!-- end panel-body -->
+				          </div> <!-- end panel -->
+				        </div> <!-- end col -->
+					</div> <!-- end row -->
+					<aside class="notes">
+					Model a simple content type, add an image field. If you have Devel enabled, then make 10 nodes of that type. For the tasks, they just have to work with the articles content type, and add a view. 
+					</aside>
+		</section>
+		<section>
+			<h2>How did you do?</h2>
+			<p>Which of these tasks did you complete?</p> 
+			<ol>
+				<li>Created a view</li>
+				<li>Added a page of articles at /articles</li>
+				<li>Bonus: Did you try something else?</li>
+			</ol>
+			<aside class="notes">
+			Keep this slide up while they complete the tasks. Go around the room and help people as they work through the exercises. This is the end of this section. 
+			</aside>
+		</section>
+		<section>
+			<h2>Important to know!</h2>
+			<h4>Contributed <strong>modules</strong> extend what Drupal can do.</h4> 
+			<figure>
+			<img src="images/drupalorg-module-list-640-400.png" alt="Modules download" width="640" height="400" />
+			<figcaption>
+			Many modules like <strong>Views slideshow</strong> extend Views. Guess what it does?
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			  You will tell them later how to evaluate and choose modules. This just introduces the concept.
+			</aside>
+		</section>
+	</section> <!-- end nested section -->
+
+<section> <!-- nested section starts -->
+		<section>
+			<h1>4. Extending <br />Drupal: <br />The Big 3</h1>
+			<aside class="notes">
+			 At this point they've seen "modules" and they've also seen "sitebuilding", you're going to clarify that, and introduce theming/layout.
+			</aside>
+		</section>
+		<section>
+			<h2>First: <br />Site Building</h2>
+			<figure>
+			<img src="images/1-sitebuilding-794-460.png" alt="Site Building" width="794" height="460" />
+			<figcaption>
+			 Site building is everything you can do in the UI layer of Drupal
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Site building answers questions such as: Pages at what paths? What fields? Who has permissions? Who can create content? Where do they find content?
+			</aside>
+		</section>
+		<section>
+			<h2>What is Site Building? </h2>
+			<ul>
+				<li>Selecting and configuring <strong>contributed modules.</strong></li>
+				<li>Modeling <strong>content types</strong>, users, etc with <strong>fields.</strong></li>
+				<li>Configuring <strong>display</strong> of content, users, terms, etc.</li>
+				<li>Configuring lists (<strong>views</strong>) of&nbsp;content, users, terms, etc.</li>
+			</ul>
+			<aside class="notes">
+			   
+			</aside>
+		</section>
+		<section>
+			<h2>Second: <br />Layout and theming</h2>
+			<figure>
+			<img src="images/2-layout-893-460.png" alt="Layout" width="893" height="460" />
+			<figcaption>
+			 Layout and theming combines Drupal site building and coding in PHP/HTML/CSS/JS.
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Layout answers questions like: Where will blocks of content appear on the page? Theming answers: How will those blocks appear?
+			</aside>
+		</section>
+		<section>
+			<h2>What is Layout and theming? </h2>
+			<ol>
+			<li><strong>Layout: </strong>Where things appear on the screen</li>
+			<li><strong>Theming: </strong>How they look</li>
+			</ol>
+			<h4>Tasks include:</h4>
+			<ul>
+				<li>Various approaches for different use cases.&nbsp;</li>
+				<li><strong>Contributed modules</strong> for configuring&nbsp;layout.&nbsp;</li>
+				<li>Extending <strong>base themes</strong></li>
+				<li>Creating <strong>custom themes</strong></li>
+			</ul>
+			<aside class="notes">
+			   Front end developers who use Drupal need to know Drupal site building as well as HTML/CSS/JavaScript and some PHP to create custom themes.
+			</aside>
+		</section>
+		<section>
+			<h2>Third: <br />Custom coding with modules</h2>
+			<figure>
+			<img src="images/3-modules-766-457.png" alt="Layout" width="766" height="457" />
+			<figcaption>
+			 Modules answer questions such as "Can Drupal do X?"
+			</figcaption>
+			</figure>
+			<aside class="notes">
+			Most of the functionality you need can be attained by selecting contributed modules. But sometimes you find limitations and need to either extend modules, or create your own. 
+			</aside>
+		</section>
+		<section>
+			<h2>What is module development?</h2>
+			<ul>
+				<li>Knowing the landscape of contributed modules and roadmaps.&nbsp;</li>
+				<li>Extending existing modules and contributing <strong>patches</strong>.&nbsp;</li>
+				<li>Use Drupal's API to write&nbsp;new modules in PHP/HTML/CSS/JavaScript/etc.</li>
+				<li>Custom modules for new functionality and integrations.</li>
+			</ul>
+			<aside class="notes">
+			   Back end developers who use Drupal need to understand site building, theming as well as programming to create custom functionality using Drupal's API. 
+			</aside>
+		</section>
+
+		<section>
+			<h2>Drupal emphasizes flexibility</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<figure>
+					<img src="images/big3-smallpieces-325-557.png" alt="Layout" width="325" height="557" />
+					<figcaption>
+					 
+					</figcaption>
+					</figure>
+				</div>
+ 				<div class="col-md-6">
+					<h3>Drupal 7</h3>
+					<ul>
+						<li>More generic, flexible solutions.</li>
+						<li>Don’t duplicate effort.</li>
+						<li>Standardize administration.</li>
+						<li>Less dependence on custom code.</li>
+					</ul>
+				</div>
+			</div> <!-- end row -->
+			<aside class="notes">
+				Since Drupal 6 - Specific modules were replaced by the combined features of more generic modules.
+				Compare the “event” module with modeling events with core content types, and views for display.
+			</aside>
+		</section>
+		<section>
+			<h2>Tips on module selection</h2>
+			<div class="row">
+				<div class="col-md-4">
+ 					<h3>Reputation</h3>
+					<ul>
+						<li>Maintainers other contributions and involvement,</li>
+						<li>IRC, word of mouth, appearance in case studies and blog posts.</li>
+					</ul>
+				</div>
+ 				<div class="col-md-4">
+ 					<h3>Reach</h3>
+					<ul>
+						<li>Community around module?</li>
+						<li>Related modules?</li>
+						<li>Number of installations?</li>
+						<li>Integrate with other modules?</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+ 					<h3>Currency</h3>
+					<ul>
+						<li>Recent commits (last 4-6 weeks)?</li>
+						<li>Recent release? (green/stable)</li>
+						<li>Issue queue responsiveness and maintenance?</li>
+					</ul>
+				</div>
+			</div> <!-- end row -->
+			<aside class="notes">
+				Read the readme.txt file for every module. Attend DrupalCamps to find out information about the latest modules.
+			</aside>
+		</section>
+		
+		<section>
+			<h2>Reading a project page</h2>
+			<div class="row">
+				<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Demo</h3>
+			            </div>
+			            <div class="panel-body">
+			              	<ol>
+								<li>Compatible version for Drupal 7?</li>
+								<li>How many installations?</li>
+								<li>Who maintains this?</li>
+								<li>What are current issues?</li>
+								<li>Is Documentation available?</li>
+							</ol> 
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Task</h3>
+			            </div>
+			            <div class="panel-body">
+			              	<ol>
+								<li>Come up with an idea for some functionality you'd like on your site. (No ideas? How about allowing users login with Facebook.)</li>
+								<li>Search for a module.</li>
+								<li>Evaluate it against the criteria we used: Reputation, reach, currency</li>
+							</ol>
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				</div> <!-- end row -->
+			<aside class="notes">
+			   First elicit some ideas from the group about something they'd like to do with Drupal. If you're pressed for time, just go to http://drupal.org/project/bean (then point out it's in Drupal 8).
+			</aside>
+		</section>
+		<section>
+			<h2>A basic theme</h2> 
+			<figure>
+			<img src="images/big3-baretheme1-853-446.png" alt="A basic theme" width="853" height="446" />
+			<figcaption>
+			 This is the bare minimum you need for a theme in Drupal 7.
+			</figcaption>
+			</figure>
+			<aside class="notes">
+				These slides just explain theming briefly. A basic theme can be made with a simple .info configuration file, saved into a folder of the same name. It gets places in the file system In sites/all/themes. In this case, the theme is called “newlook”.
+			</aside>
+		</section>
+		<section>
+			<h2>What will happen?</h2> 
+			<p>What do you think the site will display when we enable this theme?</p>
+			<figure>
+			<img src="images/big3-baretheme2-611-444.png" alt="A basic theme" width="611" height="444" />
+			<figcaption>
+			 Enable themes under "Appearance"
+			</figcaption>
+			</figure>
+			<aside class="notes">
+				Elicit response about what they think an essentially "blank" theme will render in the browser. about 99.9% of the time people expect a BLANK theme to render a BLANK site. 
+			</aside>
+		</section>
+		<section>
+			<h2>What will happen?</h2> 
+			<p>What do you think the site will display when we enable this theme?</p>
+			<figure>
+			<img src="images/big3-baretheme2-611-444.png" alt="A basic theme" width="611" height="444" />
+			<figcaption>
+			 Enable themes under "Appearance"
+			</figcaption>
+			</figure>
+			<aside class="notes">
+				Elicit response about what they think an essentially "blank" theme will render in the browser. about 99.9% of the time people expect a BLANK theme to render a BLANK site. 
+			</aside>
+		</section>
+
+</section> <!-- end nested section -->
+
+	<!-- Example of nested vertical slides -->
+	<section> <!-- nested section starts -->
+		<section>
+			<h2>End of slides, beginning of samples</h2> 
+			<div class="row">
+				<div class="col-sm-6" style="border-right:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Panel title</h3>
+			            </div>
+			            <div class="panel-body">
+			              Panel content is long.  
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+
+				<div class="col-sm-6" style="border-left:1px solid #f5f5f5">
+			          <div class="panel panel-default">
+			            <div class="panel-heading">
+			              <h3 class="panel-title">Panel title</h3>
+			            </div>
+			            <div class="panel-body">
+			              Panel content
+			            </div> <!-- end panel-body -->
+			          </div> <!-- end panel -->
+			        </div> <!-- end col -->
+				</div> <!-- end row -->
+				<aside class="notes">
+					If you’re going to do 30- 45 mins, you will SKIP exercises, as they just watch the demos!
+				</aside>
+		</section>
+
+		<section>
+			<h2>Simple columns</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Left</h3>
+					<p>Something</p>
+				</div>
+ 				<div class="col-md-6">
+					<h3>Right</h3>
+					<p>Something</p>
+				</div>
+			</div> <!-- end row -->
+			<aside class="notes">
+				If you’re going to do 30- 45 mins, you will SKIP exercises, as they just watch the demos!
+			</aside>
+		</section>
+
+		<section>
+			<h2>Topic</h2> 
+			
+			<aside class="notes">
+				If you’re going to do 30- 45 mins, you will SKIP exercises, as they just watch the demos!
+			</aside>
+		</section>
+
+        <section>
+	    <h1>H1 text is big</h1>
+           <h3>Sample section</h3>
+            <pre><code data-trim contenteditable>
+				this is sample code
+	          </code></pre>
+			<ul>
+				<li>This is a list item.</li>
+			</ul>
+			<p>	<img class="img-circle" data-src="holder.js/140x140" alt="140x140" style="width: 300px; height: 300px;" src="images/timeline-800-355.png">
+	</p>
+			<aside class="notes">
+				Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard) only if you're running on a local server. 
+			</aside>
+		</section>
+
+		</section> <!-- end nested section -->
+
+      </div> <!-- // end slides -->
+
+    </div> <!-- // end reveal -->
+
+    <script src="revealjs/lib/js/head.min.js"></script>
+    <script src="revealjs/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
