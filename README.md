@@ -1,7 +1,9 @@
 hellodrupal
 ===========
 
-A quick introduction to Drupal
+A quick introduction to Drupal. 
+
+To view this presentation, clone this repository to your computer. Click "index.html". This creates a local copy which you can edit and modify as needed. 
 
 This is based on reveal.js
 https://github.com/hakimel/reveal.js
