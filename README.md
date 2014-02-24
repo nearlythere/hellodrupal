@@ -5,12 +5,11 @@ A quick introduction to Drupal.
 
 To view this presentation:
 - Clone this repository to your computer. This creates a local copy which you can edit and modify as needed. 
+- Clone the Reveal.js library https://github.com/hakimel/reveal.js Add to your folder so you have hellodrupal/revealjs
 - Click "index.html".
 
 You will need Git, but you don't need to install anything else. 
 
-This is based on reveal.js
-https://github.com/hakimel/reveal.js
 
 To navigate
 -------------
