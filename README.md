@@ -4,8 +4,8 @@ hellodrupal
 A quick introduction to Drupal. 
 
 To view this presentation:
-1) Clone this repository to your computer. This creates a local copy which you can edit and modify as needed. 
-2) Click "index.html".
+- Clone this repository to your computer. This creates a local copy which you can edit and modify as needed. 
+- Click "index.html".
 
 You will need Git, but you don't need to install anything else. 
 
