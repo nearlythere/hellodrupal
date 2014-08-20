@@ -9,6 +9,9 @@ To view this presentation:
 
 You will need Git, but you don't need to install anything else. 
 
+If you want to see how the presentation works, you can watch these videos:
+https://www.youtube.com/playlist?list=PLNDC6mOrDcQ6_xv10kXZWAntEJtDtRhsN
+
 
 To navigate
 -------------
